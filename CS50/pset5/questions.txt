@@ -1,0 +1,49 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+    It's the longest word in the English language published in a dictionary (45 letters).
+
+1.  According to its man page, what does getrusage do?
+    Returns resource usage statistics.
+
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+    16.
+
+3.  Why do you think we pass before and after by reference (instead of by value) 
+to calculate, even though we’re not changing their contents?
+    It is less expensive in terms of time and memory to pass a pointer instead of the struct values.
+    
+
+4.  Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file. 
+In other words, convince us that you indeed understand how that function’s for loop works.
+    The loops starts by reading one character at a time until the end of file and if it finds letters or apotrophes
+    it will append the character to a word array. If it finds non-alphabetic characters or the string
+    is too long to be a word it will reset the index to 0, thus preparing for a new word.
+    When it finds a whole word, it will append the NULL character, it will call check and if it doesn't pass
+    it will print the word. At the same time it will calculate the resource usage for the check operation.
+
+
+5.  Why do you think we used fgetc to read each word’s characters one at a time 
+rather than use fscanf with a format string like "%s" to read whole words at a time? 
+Put another way, what problems might arise by relying on fscanf alone?
+    fscanf will only read until whitespace, while fgetc will read the whole line. fscanf
+    would read a mispelled word with a trailing whitespace in the middle as two words, which
+    fgetc does not.
+
+6.  Why do you think we declared the parameters for check and load as const?
+    One reason could be so that students don't modify the string passed by the function.
+
+7.  What data structure(s) did you use to implement your spell-checker? 
+Be sure not to leave your answer at just "hash table," "trie," or the like. 
+Expound on what’s inside each of your "nodes."
+    I used a "node" with a char array and a pointer to the next node. I used hashtable because 
+    I was more familiar with the concept than tries and decided to have a larger hashtable 
+    to avoid collision as much as possible.
+
+8.  How slow was your code the first time you got it working correctly?
+    It was immediately very fast because I stumble upon a very good hash function as soon I as 
+    I started researching hash functions. It is as fast as the staff implementation!
+
+9.  What kinds of changes, if any, did you make to your code in order to improve its performance?
+    I did not make any change except implementing the rest of the pset :P
+    
+10. Do you feel that your code has any bottlenecks that you were not able to chip away at?
+    Hope not!

@@ -1,0 +1,62 @@
+0.  How many colors do JPG, PNG, BMP and GIF support
+  BMP: 32 bit color, or over 4 billion
+	GIF: 8 bits, 256 colors
+	JPEG: 24 bit, 16 million
+	PNG: 24 bit, 16 million
+	
+1.  Which of the format support animation
+  GIF
+
+2.  Difference between lossy and lossless compression
+  Lossless compression preserves all data stored in the original file, while lossy compression
+  eliminates some data from the original file in order to compress the file.
+
+3.  Which is lossy compressed
+  GIF and JPG
+
+4.  What happens when a file is deleted on a FAT file system
+  FAT stands for File Allocation Table; when a file is deleted, the first character of its name 
+  is changed to sigma and all pointers to the file are changed to 0.
+  
+5.  What can be done to ensure that files are really deleted.
+  Files are deleted permantely if overwritten or "shredded" using particular methods or software. 
+
+6.  What's stdint.h
+  It's a header library that defines fixed-width integer types
+
+7.  What's the point of using uint8_t, uint32_t, int32_t and uint16_t
+  They have the same width in all machines, it may increase portability.
+
+8.  How many bytes is BYTE, DWORD, LONG, WORD
+BYTE is 1 byte, DWORD and LONG are 4 bytes and WORD is 2 bytes.
+
+9.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? 
+  They are 0x42 0x4D and must designate the type of Bitmap file (BM, BA, CI, etc)
+
+10. Difference between bfSize and biSize
+bfSize is the size, in bytes, of bitmap file; biSize is the number of bytes required by the structure
+
+11. What if biHeight is negative
+If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+
+12. What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+  The biBitCount member of the BITMAPINFOHEADER structure determines the number of bits that define each pixel
+  and the maximum number of colors in the bitmap
+
+13. Why might fopen return NULL in copy.c:37?
+  fopen will return NULL if the it cannot find a valid output file to write in (e.g. the file does not exist)
+  
+14. Why is the third argument to fread always 1 in our code?
+  Because we want to read one pixel at a time, which is precisely one byte (hence 1 in the code).
+
+15. What value does copy.c:70 assign padding if bi.biWidth is 3?
+  If bi.biWidth is 3, padding is 1
+
+16. What does fseek do?
+  It sets the file position of the stream to the given offset.
+
+17. What is SEEK_CUR?
+  This is an integer constant which specifies that the offset provided is relative to the current file position.
+
+
+
