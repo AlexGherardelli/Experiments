@@ -3,7 +3,7 @@
 '''
 Do basic stuff with Twitter data (e.g. prints followers, streams tweets)
 '''
-from UNCFS_preload import *
+from tweepy_preload import *
 
 api = authentication(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
 
@@ -14,12 +14,13 @@ for status in tweepy.Cursor(api.home_timeline).items(10):
 
 # prints all followers
 print "List of followers\n"
-for friend in tweepy.Cursor(api.friends).items(10):
-    print process(friend._json)
+getFollowers()
 
 # print "List of all Tweets\n"
-# for tweet in tweepy.Cursor(api.user_timeline).items():
-#     print process(tweet._json)
+getAllTweets()
 
+# tracks keywords with Twitter streaming API
 twitter_stream = Stream(auth, MyListener())
 twitter_stream.filter(track=['#SDGs'])
+
+if __main__ == "__main__":

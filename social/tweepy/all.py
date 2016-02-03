@@ -1,13 +1,13 @@
 #! C:\Users\Gherardelli\Documents\PortableApps\WinPython\python-2.7.10\python.exe
-'''
-Define authentication and other basic functions for Twitter interaction
-'''
 import tweepy
 import json
 from tweepy import OAuthHandler
 from tweepy import Stream
 from tweepy.streaming import StreamListener
 
+'''
+UNCFS OAuth Data
+'''
 CONSUMER_KEY = "eygeDOFiZZ66ktbGwVfEMCpxs"
 CONSUMER_SECRET = "4VuKManXWaqy9GpV7SHJXWND1xYa2DfmPAveQBPcbso0eMviXs"
 ACCESS_TOKEN = "2308433827-p1KKGntTERQzYA9QNEy6Spaf2PYcgk7HBCFU7yG"
@@ -22,16 +22,10 @@ def authentication(consumer_key, consumer_secret, access_token, access_secret):
 def process(tweet):
     print json.dumps(tweet, indent = 2)
 
-class MyListener(StreamListener):
-    def on_data(self, data):
-        try:
-            with open('python.json', 'a') as f:
-                f.write(data)
-                return True
-        except BaseException as e:
-            print("Error on_data: %s" % str(e))
-        return True
+def getFollowers():
+    for friend in tweepy.Cursor(api.friends).items():
+        return process(friend._json)
 
-    def on_error(self, status):
-        print(status)
-        return True
+def getAllTweets():
+    for tweet in tweepy.Cursor(api.user_timeline).items():
+        return process(tweet._json)
