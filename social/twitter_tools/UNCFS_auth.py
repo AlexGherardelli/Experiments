@@ -4,10 +4,10 @@ Define authentication and other basic functions for Twitter interaction
 '''
 import twitter, json, os
 
-CONSUMER_KEY = "eygeDOFiZZ66ktbGwVfEMCpxs"
-CONSUMER_SECRET = "4VuKManXWaqy9GpV7SHJXWND1xYa2DfmPAveQBPcbso0eMviXs"
-ACCESS_TOKEN = "2308433827-p1KKGntTERQzYA9QNEy6Spaf2PYcgk7HBCFU7yG"
-ACCESS_SECRET = "74RBgkvgv3Y7GRe1VbUbTlD6Hs0qY28QnMwbf1Kp2hHpm"
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+ACCESS_TOKEN = ""
+ACCESS_SECRET = ""
 
 def t_auth(consumer_key, consumer_secret, access_token, access_secret):
     auth = twitter.oauth.OAuth(access_token, access_secret,
